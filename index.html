@@ -100,7 +100,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h2><i class="fas fa-chart-bar"></i> 市场利率对比</h2>
-                        <p>和其他常见理财产品比一比</p>
+                        <p>存钱借钱利率大PK，看看哪个最划算~</p>
                     </div>
                     
                     <div class="card-body">
@@ -109,12 +109,13 @@
                             <div class="comparison-header">日利率 (%)</div>
                             <div class="comparison-header">月利率 (%)</div>
                             <div class="comparison-header">年利率 (%)</div>
-                            <div class="comparison-header">1万元日收益</div>
-                            <div class="comparison-header">1万元年收益</div>
+                            <div class="comparison-header">1万元日利息</div>
+                            <div class="comparison-header">1万元年利息</div>
                             
                             <!-- 当前输入数据 -->
                             <div class="comparison-item highlight">
                                 <i class="fas fa-user"></i> 您的输入
+                                <span class="position-indicator" id="input-position-indicator"></span>
                             </div>
                             <div id="comp-daily-rate" class="comparison-value highlight">-</div>
                             <div id="comp-monthly-rate" class="comparison-value highlight">-</div>
@@ -122,9 +123,19 @@
                             <div id="comp-daily-interest" class="comparison-value highlight">-</div>
                             <div id="comp-yearly-interest" class="comparison-value highlight">-</div>
                             
-                            <!-- 余额宝 -->
+                            <!-- 银行活期 - 理财类 -->
                             <div class="comparison-item">
-                                <i class="fas fa-piggy-bank"></i> 余额宝
+                                <i class="fas fa-piggy-bank saving-icon" title="理财产品"></i> 银行活期存款
+                            </div>
+                            <div class="comparison-value">0.0007</div>
+                            <div class="comparison-value">0.021</div>
+                            <div class="comparison-value">0.25</div>
+                            <div class="comparison-value">0.07元</div>
+                            <div class="comparison-value">25元</div>
+                            
+                            <!-- 余额宝 - 理财类 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-piggy-bank saving-icon" title="理财产品"></i> 余额宝
                             </div>
                             <div class="comparison-value">0.0051</div>
                             <div class="comparison-value">0.156</div>
@@ -132,9 +143,9 @@
                             <div class="comparison-value">0.51元</div>
                             <div class="comparison-value">187元</div>
                             
-                            <!-- 银行定期 -->
+                            <!-- 银行定期 - 理财类 -->
                             <div class="comparison-item">
-                                <i class="fas fa-university"></i> 银行定期存款
+                                <i class="fas fa-piggy-bank saving-icon" title="理财产品"></i> 银行定期存款（1年）
                             </div>
                             <div class="comparison-value">0.0055</div>
                             <div class="comparison-value">0.167</div>
@@ -142,19 +153,60 @@
                             <div class="comparison-value">0.55元</div>
                             <div class="comparison-value">200元</div>
                             
-                            <!-- 司法保护上限 -->
+                            <!-- 早期余额宝 - 理财类 -->
                             <div class="comparison-item">
-                                <i class="fas fa-gavel"></i> 司法保护上限
+                                <i class="fas fa-piggy-bank saving-icon" title="理财产品"></i> 早期余额宝
+                            </div>
+                            <div class="comparison-value">0.0100</div>
+                            <div class="comparison-value">0.304</div>
+                            <div class="comparison-value">3.65</div>
+                            <div class="comparison-value"><strong>1.00</strong>元</div>
+                            <div class="comparison-value">365元</div>
+                            
+                            <!-- 民间借款司法保护上限 - 借款类 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-money-bill-wave loan-icon" title="借款利率"></i> 民间借款司法保护上限
                             </div>
                             <div class="comparison-value">0.0422</div>
                             <div class="comparison-value">1.283</div>
                             <div class="comparison-value">15.40</div>
                             <div class="comparison-value">4.22元</div>
                             <div class="comparison-value">1540元</div>
+                            
+                            <!-- 高利贷红线 - 借款类 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-money-bill-wave loan-icon" title="借款利率"></i> 高利贷红线（36%）
+                            </div>
+                            <div class="comparison-value">0.0986</div>
+                            <div class="comparison-value">3.000</div>
+                            <div class="comparison-value">36.00</div>
+                            <div class="comparison-value">9.86元</div>
+                            <div class="comparison-value">3600元</div>
+                            
+                            <!-- 日息0.3%现金贷 - 借款类 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-money-bill-wave loan-icon" title="借款利率"></i> 部分现金贷（日息0.3%）
+                            </div>
+                            <div class="comparison-value">0.3000</div>
+                            <div class="comparison-value">9.125</div>
+                            <div class="comparison-value">109.50</div>
+                            <div class="comparison-value">30.00元</div>
+                            <div class="comparison-value">10950元</div>
+                            
+                            <!-- 日息1%现金贷 - 借款类 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-money-bill-wave loan-icon" title="借款利率"></i> 部分现金贷（日息1%）
+                            </div>
+                            <div class="comparison-value">1.0000</div>
+                            <div class="comparison-value">30.417</div>
+                            <div class="comparison-value">365.00</div>
+                            <div class="comparison-value">100.00元</div>
+                            <div class="comparison-value">36500元</div>
                         </div>
                         
                         <div class="comparison-info">
-                            <p><i class="fas fa-info-circle"></i> 司法保护上限是指民间借贷受法律保护的最高利率，超过这个利率的部分法律不予保护。</p>
+                            <p><i class="fas fa-info-circle"></i> 司法保护上限是民间借贷的"红线"，借钱利率超过这条线，法院不会支持哦！存钱时可作参考，借钱时千万别超过~</p>
+                            <p><i class="fas fa-exclamation-triangle"></i> 年化36%是《刑法》规定的"高利贷"认定标准，超过可能涉嫌违法犯罪！</p>
                         </div>
                     </div>
                 </div>
@@ -162,7 +214,7 @@
         </main>
 
         <footer>
-            <p><i class="fas fa-info-circle"></i> 本工具仅供参考，帮助理解利率换算关系</p>
+            <p><i class="fas fa-info-circle"></i> 本工具仅供参考，帮助理解各类利率换算关系</p>
             <p>&copy; 2024 轻松利息计算 - 简单易懂的利率小工具</p>
         </footer>
     </div>
