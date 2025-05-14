@@ -1,14 +1,17 @@
 /* 全局样式 */
 :root {
-    --primary-color: #4a6fa5;
-    --primary-dark: #3a5a8c;
-    --secondary-color: #6c757d;
-    --light-bg: #f8f9fa;
-    --border-color: #dee2e6;
-    --success-color: #28a745;
-    --highlight-color: #fffde7;
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --primary-color: #4caf50;
+    --primary-dark: #388e3c;
+    --secondary-color: #7c8a78;
+    --light-bg: #f1f8e9;
+    --border-color: #c5e1a5;
+    --success-color: #66bb6a;
+    --highlight-color: #ffecb3;
+    --card-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     --transition: all 0.3s ease;
+    --text-color: #4a4a4a;
+    --accent-color: #ff9800;
+    --accent-light: #ffe0b2;
 }
 
 * {
@@ -20,10 +23,11 @@
 body {
     font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f7fa;
+    color: var(--text-color);
+    background-color: #fafafa;
     padding: 0;
     margin: 0;
+    font-size: 16px;
 }
 
 .container {
@@ -38,12 +42,17 @@ header {
     margin-bottom: 30px;
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    margin-top: 10px;
 }
 
 h1 {
     color: var(--primary-color);
     font-size: 2.5rem;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .subtitle {
@@ -55,109 +64,122 @@ h2 {
     color: var(--primary-color);
     font-size: 1.5rem;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 /* 卡片样式 */
 .card {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
     margin-bottom: 30px;
     overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
     background-color: var(--light-bg);
-    padding: 15px 20px;
+    padding: 18px 24px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .card-header p {
     color: var(--secondary-color);
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-top: 5px;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 24px;
 }
 
 /* 计算器部分样式 */
 .calculator-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
 }
 
 /* 输入组样式 */
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    position: relative;
 }
 
 .input-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .input-group input {
     width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.1rem;
     transition: var(--transition);
+    background-color: #ffffff;
 }
 
 .input-group input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
-/* 按钮样式 */
-.primary-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 100%;
-    transition: var(--transition);
-}
-
-.primary-btn:hover {
-    background-color: var(--primary-dark);
+.input-helper {
+    display: block;
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    margin-top: 6px;
 }
 
 /* 结果容器 */
 .results-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+    gap: 16px;
+    margin-top: 24px;
 }
 
 .result-box {
     background-color: var(--light-bg);
-    border-radius: 6px;
-    padding: 15px;
+    border-radius: 10px;
+    padding: 16px;
     text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.result-box:hover {
+    background-color: #e8f5e9;
+    transform: translateY(-2px);
 }
 
 .result-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--secondary-color);
     margin-bottom: 10px;
 }
 
 .result-value {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.result-helper {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
 }
 
 /* 比较表格样式 */
@@ -166,28 +188,32 @@ h2 {
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .comparison-header {
     font-weight: 600;
-    padding: 10px;
+    padding: 12px;
     background-color: var(--light-bg);
     text-align: center;
-    border-radius: 4px;
+    border-radius: 8px;
+    color: var(--text-color);
 }
 
 .comparison-item {
-    padding: 12px 10px;
+    padding: 14px 12px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: var(--transition);
 }
 
 .comparison-value {
-    padding: 12px 10px;
+    padding: 14px 12px;
     border-bottom: 1px solid var(--border-color);
     text-align: center;
+    transition: var(--transition);
 }
 
 .highlight {
@@ -195,14 +221,31 @@ h2 {
     font-weight: 500;
 }
 
+.comparison-item:hover, .comparison-value:hover {
+    background-color: var(--accent-light);
+}
+
+.comparison-info {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    border-left: 4px solid var(--accent-color);
+}
+
 /* 页脚样式 */
 footer {
     text-align: center;
     margin-top: 40px;
-    padding: 20px;
+    padding: 24px;
     color: var(--secondary-color);
     font-size: 0.9rem;
     border-top: 1px solid var(--border-color);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
 }
 
 /* 响应式设计 */
@@ -220,7 +263,7 @@ footer {
     }
     
     .comparison-item, .comparison-value {
-        padding: 10px;
+        padding: 12px;
         border-bottom: none;
     }
     
@@ -228,10 +271,16 @@ footer {
         content: attr(data-label);
         font-weight: 600;
         display: inline-block;
-        width: 100px;
+        width: 120px;
     }
     
     .results-container {
         grid-template-columns: 1fr;
     }
+}
+
+/* 添加生动元素 */
+.fas {
+    color: var(--accent-color);
+    margin-right: 6px;
 } 

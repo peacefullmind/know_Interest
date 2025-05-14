@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>利息计算器 - 利率换算与比较工具</title>
+    <title>轻松利息计算 - 一目了然的利率工具</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-calculator"></i> 利息计算器</h1>
-            <p class="subtitle">一站式利率换算与市场比较工具</p>
+            <h1><i class="fas fa-seedling"></i> 轻松利息计算</h1>
+            <p class="subtitle">简单易懂的利率换算与比较小工具</p>
         </header>
 
         <main>
@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h2><i class="fas fa-sync-alt"></i> 利率换算</h2>
-                        <p>输入任意一个值，自动计算其他值</p>
+                        <p>输入任意一项，其他数值会自动计算哦~</p>
                     </div>
                     
                     <div class="card-body">
@@ -27,36 +27,37 @@
                             <label for="daily-rate">
                                 <i class="fas fa-calendar-day"></i> 日利率 (%)
                             </label>
-                            <input type="number" id="daily-rate" step="0.0001" placeholder="0.0137">
+                            <input type="number" id="daily-rate" step="0.0001" placeholder="输入日利率...">
+                            <small class="input-helper">每天获得的利息占本金的百分比</small>
                         </div>
                         <div class="input-group">
                             <label for="monthly-rate">
                                 <i class="fas fa-calendar-alt"></i> 月利率 (%)
                             </label>
-                            <input type="number" id="monthly-rate" step="0.01" placeholder="0.4167">
+                            <input type="number" id="monthly-rate" step="0.01" placeholder="输入月利率...">
+                            <small class="input-helper">每月获得的利息占本金的百分比</small>
                         </div>
                         <div class="input-group">
                             <label for="yearly-rate">
                                 <i class="fas fa-calendar"></i> 年利率 (%)
                             </label>
-                            <input type="number" id="yearly-rate" step="0.01" placeholder="5.0000">
+                            <input type="number" id="yearly-rate" step="0.01" placeholder="输入年利率...">
+                            <small class="input-helper">每年获得的利息占本金的百分比</small>
                         </div>
                         <div class="input-group">
                             <label for="apr">
-                                <i class="fas fa-percentage"></i> 实际年化收益率 (APR %)
+                                <i class="fas fa-percentage"></i> 复利年化收益 (%)
                             </label>
-                            <input type="number" id="apr" step="0.01" placeholder="5.1200">
+                            <input type="number" id="apr" step="0.01" placeholder="输入复利年化...">
+                            <small class="input-helper">考虑了利滚利效应的实际年收益率</small>
                         </div>
-                        <button id="calculate-btn" class="primary-btn">
-                            <i class="fas fa-calculator"></i> 计算
-                        </button>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-header">
                         <h2><i class="fas fa-coins"></i> 利息计算</h2>
-                        <p>计算特定金额的利息收益</p>
+                        <p>看看你的钱能赚多少利息</p>
                     </div>
                     
                     <div class="card-body">
@@ -65,6 +66,7 @@
                                 <i class="fas fa-money-bill-wave"></i> 本金 (元)
                             </label>
                             <input type="number" id="principal" value="10000" min="0">
+                            <small class="input-helper">你投入的资金金额</small>
                         </div>
                         
                         <div class="results-container">
@@ -73,18 +75,21 @@
                                     <i class="fas fa-calendar-day"></i> 日利息
                                 </div>
                                 <div id="daily-interest" class="result-value">0.00元</div>
+                                <small class="result-helper">每天能赚这些</small>
                             </div>
                             <div class="result-box">
                                 <div class="result-title">
                                     <i class="fas fa-calendar-alt"></i> 月利息
                                 </div>
                                 <div id="monthly-interest" class="result-value">0.00元</div>
+                                <small class="result-helper">每月能赚这些</small>
                             </div>
                             <div class="result-box">
                                 <div class="result-title">
                                     <i class="fas fa-calendar"></i> 年利息
                                 </div>
                                 <div id="yearly-interest" class="result-value">0.00元</div>
+                                <small class="result-helper">每年能赚这些</small>
                             </div>
                         </div>
                     </div>
@@ -94,8 +99,8 @@
             <section class="comparison-section">
                 <div class="card">
                     <div class="card-header">
-                        <h2><i class="fas fa-chart-bar"></i> 市场利率比较</h2>
-                        <p>与市场主流利率产品对比</p>
+                        <h2><i class="fas fa-chart-bar"></i> 市场利率对比</h2>
+                        <p>和其他常见理财产品比一比</p>
                     </div>
                     
                     <div class="card-body">
@@ -147,14 +152,18 @@
                             <div class="comparison-value">4.22元</div>
                             <div class="comparison-value">1540元</div>
                         </div>
+                        
+                        <div class="comparison-info">
+                            <p><i class="fas fa-info-circle"></i> 司法保护上限是指民间借贷受法律保护的最高利率，超过这个利率的部分法律不予保护。</p>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p><i class="fas fa-info-circle"></i> 本工具仅供参考，实际金融产品计息方式可能有所不同</p>
-            <p>&copy; 2024 利息计算器 - 一站式利率换算工具</p>
+            <p><i class="fas fa-info-circle"></i> 本工具仅供参考，帮助理解利率换算关系</p>
+            <p>&copy; 2024 轻松利息计算 - 简单易懂的利率小工具</p>
         </footer>
     </div>
 

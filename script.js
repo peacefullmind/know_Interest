@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearlyRateInput = document.getElementById('yearly-rate');
     const aprInput = document.getElementById('apr');
     const principalInput = document.getElementById('principal');
-    const calculateBtn = document.getElementById('calculate-btn');
     
     // 结果元素
     const dailyInterestEl = document.getElementById('daily-interest');
@@ -19,9 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const compDailyInterestEl = document.getElementById('comp-daily-interest');
     const compYearlyInterestEl = document.getElementById('comp-yearly-interest');
     
-    // 添加计算按钮事件监听器
-    calculateBtn.addEventListener('click', calculateInterest);
-    
     // 添加输入字段事件监听器，实现输入任意一个值都可以计算其他值
     dailyRateInput.addEventListener('input', () => convertFromDaily());
     monthlyRateInput.addEventListener('input', () => convertFromMonthly());
@@ -31,7 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 从日利率转换
     function convertFromDaily() {
-        if (!dailyRateInput.value) return;
+        if (!dailyRateInput.value) {
+            clearResults();
+            return;
+        }
         
         const dailyRate = parseFloat(dailyRateInput.value);
         const monthlyRate = (dailyRate * 30.4167).toFixed(4); // 平均每月天数
@@ -48,7 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 从月利率转换
     function convertFromMonthly() {
-        if (!monthlyRateInput.value) return;
+        if (!monthlyRateInput.value) {
+            clearResults();
+            return;
+        }
         
         const monthlyRate = parseFloat(monthlyRateInput.value);
         const dailyRate = (monthlyRate / 30.4167).toFixed(4);
@@ -65,7 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 从年利率转换
     function convertFromYearly() {
-        if (!yearlyRateInput.value) return;
+        if (!yearlyRateInput.value) {
+            clearResults();
+            return;
+        }
         
         const yearlyRate = parseFloat(yearlyRateInput.value);
         const dailyRate = (yearlyRate / 365).toFixed(4);
@@ -82,7 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 从APR转换
     function convertFromAPR() {
-        if (!aprInput.value) return;
+        if (!aprInput.value) {
+            clearResults();
+            return;
+        }
         
         const apr = parseFloat(aprInput.value);
         // 利用复利公式反算简单利率
@@ -96,6 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         calculateInterest();
         updateComparisonTable();
+    }
+    
+    // 清除结果
+    function clearResults() {
+        dailyInterestEl.textContent = '0.00元';
+        monthlyInterestEl.textContent = '0.00元';
+        yearlyInterestEl.textContent = '0.00元';
+        
+        compDailyRateEl.textContent = '-';
+        compMonthlyRateEl.textContent = '-';
+        compYearlyRateEl.textContent = '-';
+        compDailyInterestEl.textContent = '-';
+        compYearlyInterestEl.textContent = '-';
     }
     
     // 计算利息
