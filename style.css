@@ -356,4 +356,72 @@ strong {
 
 .loan-icon {
     color: #ff9800;
+}
+
+/* 计算方法说明样式 */
+.formula-section {
+    margin-top: 30px;
+}
+
+.formula-body {
+    padding: 20px;
+}
+
+.formula-group {
+    margin-bottom: 25px;
+}
+
+.formula-group h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.formula-item {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.formula-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.formula-content {
+    font-family: "Courier New", monospace;
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 8px;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.formula-note {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.formula-note p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .formula-grid {
+        grid-template-columns: 1fr;
+    }
 } 

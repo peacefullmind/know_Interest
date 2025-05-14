@@ -211,6 +211,88 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- 计算方法说明 -->
+            <section class="formula-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calculator"></i> 计算方法说明</h2>
+                        <p>本工具使用的计算公式及转换关系</p>
+                    </div>
+                    
+                    <div class="card-body formula-body">
+                        <div class="formula-group">
+                            <h3>利率换算关系</h3>
+                            <div class="formula-grid">
+                                <div class="formula-item">
+                                    <div class="formula-title">日利率 → 月利率</div>
+                                    <div class="formula-content">月利率 = 日利率 × 30.4167 (平均月天数)</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">日利率 → 年利率</div>
+                                    <div class="formula-content">年利率 = 日利率 × 365</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">月利率 → 日利率</div>
+                                    <div class="formula-content">日利率 = 月利率 ÷ 30.4167</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">月利率 → 年利率</div>
+                                    <div class="formula-content">年利率 = 月利率 × 12</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">年利率 → 日利率</div>
+                                    <div class="formula-content">日利率 = 年利率 ÷ 365</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">年利率 → 月利率</div>
+                                    <div class="formula-content">月利率 = 年利率 ÷ 12</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="formula-group">
+                            <h3>复利计算</h3>
+                            <div class="formula-grid">
+                                <div class="formula-item">
+                                    <div class="formula-title">日利率 → 复利年化</div>
+                                    <div class="formula-content">复利年化 = (1 + 日利率)^365 - 1</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">月利率 → 复利年化</div>
+                                    <div class="formula-content">复利年化 = (1 + 月利率)^12 - 1</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">年利率 → 复利年化</div>
+                                    <div class="formula-content">复利年化 = (1 + 年利率/365)^365 - 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="formula-group">
+                            <h3>利息计算</h3>
+                            <div class="formula-grid">
+                                <div class="formula-item">
+                                    <div class="formula-title">日利息</div>
+                                    <div class="formula-content">日利息 = 本金 × 日利率</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">月利息</div>
+                                    <div class="formula-content">月利息 = 本金 × 月利率</div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-title">年利息</div>
+                                    <div class="formula-content">年利息 = 本金 × 年利率</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="formula-note">
+                            <p><i class="fas fa-lightbulb"></i> <strong>说明：</strong>以上公式中的利率均为小数形式，例如5%对应0.05。利息计算基于简单利息模型，不考虑复利效应。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer>
