@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利息计算器 - 利率换算与比较工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> 利息计算器</h1>
+            <p class="subtitle">一站式利率换算与市场比较工具</p>
+        </header>
+
+        <main>
+            <section class="calculator-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-sync-alt"></i> 利率换算</h2>
+                        <p>输入任意一个值，自动计算其他值</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label for="daily-rate">
+                                <i class="fas fa-calendar-day"></i> 日利率 (%)
+                            </label>
+                            <input type="number" id="daily-rate" step="0.0001" placeholder="0.0137">
+                        </div>
+                        <div class="input-group">
+                            <label for="monthly-rate">
+                                <i class="fas fa-calendar-alt"></i> 月利率 (%)
+                            </label>
+                            <input type="number" id="monthly-rate" step="0.01" placeholder="0.4167">
+                        </div>
+                        <div class="input-group">
+                            <label for="yearly-rate">
+                                <i class="fas fa-calendar"></i> 年利率 (%)
+                            </label>
+                            <input type="number" id="yearly-rate" step="0.01" placeholder="5.0000">
+                        </div>
+                        <div class="input-group">
+                            <label for="apr">
+                                <i class="fas fa-percentage"></i> 实际年化收益率 (APR %)
+                            </label>
+                            <input type="number" id="apr" step="0.01" placeholder="5.1200">
+                        </div>
+                        <button id="calculate-btn" class="primary-btn">
+                            <i class="fas fa-calculator"></i> 计算
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-coins"></i> 利息计算</h2>
+                        <p>计算特定金额的利息收益</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label for="principal">
+                                <i class="fas fa-money-bill-wave"></i> 本金 (元)
+                            </label>
+                            <input type="number" id="principal" value="10000" min="0">
+                        </div>
+                        
+                        <div class="results-container">
+                            <div class="result-box">
+                                <div class="result-title">
+                                    <i class="fas fa-calendar-day"></i> 日利息
+                                </div>
+                                <div id="daily-interest" class="result-value">0.00元</div>
+                            </div>
+                            <div class="result-box">
+                                <div class="result-title">
+                                    <i class="fas fa-calendar-alt"></i> 月利息
+                                </div>
+                                <div id="monthly-interest" class="result-value">0.00元</div>
+                            </div>
+                            <div class="result-box">
+                                <div class="result-title">
+                                    <i class="fas fa-calendar"></i> 年利息
+                                </div>
+                                <div id="yearly-interest" class="result-value">0.00元</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="comparison-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-bar"></i> 市场利率比较</h2>
+                        <p>与市场主流利率产品对比</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="comparison-grid">
+                            <div class="comparison-header">产品</div>
+                            <div class="comparison-header">日利率 (%)</div>
+                            <div class="comparison-header">月利率 (%)</div>
+                            <div class="comparison-header">年利率 (%)</div>
+                            <div class="comparison-header">1万元日收益</div>
+                            <div class="comparison-header">1万元年收益</div>
+                            
+                            <!-- 当前输入数据 -->
+                            <div class="comparison-item highlight">
+                                <i class="fas fa-user"></i> 您的输入
+                            </div>
+                            <div id="comp-daily-rate" class="comparison-value highlight">-</div>
+                            <div id="comp-monthly-rate" class="comparison-value highlight">-</div>
+                            <div id="comp-yearly-rate" class="comparison-value highlight">-</div>
+                            <div id="comp-daily-interest" class="comparison-value highlight">-</div>
+                            <div id="comp-yearly-interest" class="comparison-value highlight">-</div>
+                            
+                            <!-- 余额宝 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-piggy-bank"></i> 余额宝
+                            </div>
+                            <div class="comparison-value">0.0051</div>
+                            <div class="comparison-value">0.156</div>
+                            <div class="comparison-value">1.87</div>
+                            <div class="comparison-value">0.51元</div>
+                            <div class="comparison-value">187元</div>
+                            
+                            <!-- 银行定期 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-university"></i> 银行定期存款
+                            </div>
+                            <div class="comparison-value">0.0055</div>
+                            <div class="comparison-value">0.167</div>
+                            <div class="comparison-value">2.00</div>
+                            <div class="comparison-value">0.55元</div>
+                            <div class="comparison-value">200元</div>
+                            
+                            <!-- 司法保护上限 -->
+                            <div class="comparison-item">
+                                <i class="fas fa-gavel"></i> 司法保护上限
+                            </div>
+                            <div class="comparison-value">0.0422</div>
+                            <div class="comparison-value">1.283</div>
+                            <div class="comparison-value">15.40</div>
+                            <div class="comparison-value">4.22元</div>
+                            <div class="comparison-value">1540元</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><i class="fas fa-info-circle"></i> 本工具仅供参考，实际金融产品计息方式可能有所不同</p>
+            <p>&copy; 2024 利息计算器 - 一站式利率换算工具</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
